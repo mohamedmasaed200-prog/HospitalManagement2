@@ -1,0 +1,56 @@
+@model HospitalManagement.Models.Department
+
+@{
+    ViewData["Title"] = "حذف القسم";
+}
+
+<h1 class="text-danger">🗑 حذف القسم</h1>
+
+<div class="alert alert-warning">
+    <h4>هل أنت متأكد من حذف هذا القسم؟</h4>
+    <p class="mb-0">
+        <strong>تنبيه:</strong> إذا كان هذا القسم مرتبطًا بأطباء فلن تتم عملية الحذف حتى تنقل الأطباء إلى قسم آخر أو تحذفهم.
+    </p>
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden" asp-for="DepartmentId" />
+
+            <button type="submit" class="btn btn-danger">
+                🗑 حذف
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                ↩ العودة للقائمة
+            </a>
+
+        </form>
+
+    </div>
+
+</div>

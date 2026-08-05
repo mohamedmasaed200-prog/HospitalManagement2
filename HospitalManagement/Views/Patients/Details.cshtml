@@ -1,0 +1,80 @@
+@model HospitalManagement.Models.Patient
+
+@{
+    ViewData["Title"] = "تفاصيل المريض";
+}
+
+<h1 class="text-info">🧑 تفاصيل المريض</h1>
+
+<hr />
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.BloodGroup)
+            </dd>
+
+        </dl>
+
+    </div>
+
+</div>
+
+<br />
+
+<div>
+
+    <a asp-action="Edit"
+       asp-route-id="@Model?.PatientId"
+       class="btn btn-warning">
+        ✏️ تعديل
+    </a>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        ↩ العودة للقائمة
+    </a>
+
+</div>

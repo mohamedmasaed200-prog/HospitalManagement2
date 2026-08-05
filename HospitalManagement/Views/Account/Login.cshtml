@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hospital Login</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <style>
+            body {
+                background: linear-gradient(135deg,#0d6efd,#5bc0de);
+                height:100vh;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+
+            .login-box{
+                width:420px;
+                background:white;
+                padding:35px;
+                border-radius:15px;
+                box-shadow:0 0 20px rgba(0,0,0,.25);
+            }
+
+            .logo{
+                width:90px;
+                margin:auto;
+                display:block;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <img src="~/images/logo.png" class="logo" />
+
+        <h2 class="text-center mt-3">
+            Hospital Management
+        </h2>
+
+        <p class="text-center text-muted">
+            Login to continue
+        </p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form method="post">
+
+            <div class="mb-3">
+
+                <label>Username</label>
+
+                <input type="text"
+                       name="username"
+                       class="form-control" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Password</label>
+
+                <input type="password"
+                       name="password"
+                       class="form-control" />
+
+            </div>
+
+            <button class="btn btn-primary w-100">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+@model HospitalManagement.Models.Appointment
+
+@{
+    ViewData["Title"] = "تفاصيل الموعد";
+}
+
+<h1 class="text-info">📋 تفاصيل الموعد</h1>
+
+<hr />
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AppointmentDate)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Reason)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Reason)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.PatientId)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DoctorId)
+            </dd>
+
+        </dl>
+
+    </div>
+</div>
+
+<br />
+
+<div>
+
+    <a asp-action="Edit"
+       asp-route-id="@Model?.AppointmentId"
+       class="btn btn-warning">
+        ✏️ تعديل
+    </a>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        ↩ العودة للقائمة
+    </a>
+
+</div>

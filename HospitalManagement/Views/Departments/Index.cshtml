@@ -1,0 +1,76 @@
+@model IEnumerable<HospitalManagement.Models.Department>
+
+@{
+    ViewData["Title"] = "الأقسام";
+}
+
+<h1 class="text-primary">🏥 إدارة الأقسام</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        ➕ إضافة قسم جديد
+    </a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+
+    <thead class="table-primary">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th width="220">
+                العمليات
+            </th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.DepartmentName
+                </td>
+
+                <td>
+                    @item.Description
+                </td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.DepartmentId"
+                       class="btn btn-warning btn-sm">
+                        ✏️ تعديل
+                    </a>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.DepartmentId"
+                       class="btn btn-info btn-sm text-white">
+                        👁 التفاصيل
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.DepartmentId"
+                       class="btn btn-danger btn-sm">
+                        🗑 حذف
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

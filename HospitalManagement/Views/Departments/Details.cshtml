@@ -1,0 +1,54 @@
+@model HospitalManagement.Models.Department
+
+@{
+    ViewData["Title"] = "تفاصيل القسم";
+}
+
+<h1 class="text-info">🏥 تفاصيل القسم</h1>
+
+<hr />
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+
+    </div>
+
+</div>
+
+<br />
+
+<div>
+
+    <a asp-action="Edit"
+       asp-route-id="@Model?.DepartmentId"
+       class="btn btn-warning">
+        ✏️ تعديل
+    </a>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        ↩ العودة للقائمة
+    </a>
+
+</div>

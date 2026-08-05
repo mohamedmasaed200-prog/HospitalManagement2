@@ -1,0 +1,71 @@
+@model HospitalManagement.Models.Doctor
+
+@{
+    ViewData["Title"] = "تعديل الطبيب";
+}
+
+<h1 class="text-warning">✏️ تعديل بيانات الطبيب</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="DoctorId" />
+
+            <div class="mb-3">
+                <label asp-for="DoctorName" class="form-label"></label>
+                <input asp-for="DoctorName" class="form-control" />
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Specialization" class="form-label"></label>
+                <input asp-for="Specialization" class="form-control" />
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DepartmentId" class="form-label"></label>
+                <select asp-for="DepartmentId"
+                        asp-items="ViewBag.DepartmentId"
+                        class="form-select">
+                </select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-warning">
+                💾 حفظ التعديلات
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                ↩ العودة للقائمة
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

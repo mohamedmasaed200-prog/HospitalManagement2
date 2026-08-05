@@ -1,0 +1,97 @@
+﻿@using HospitalManagement.Models
+
+@{
+    ViewData["Title"] = "الرئيسية";
+    var latestPatients = ViewBag.LatestPatients as List<Patient>;
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5 text-primary">🏥 نظام إدارة المستشفى</h1>
+        <p class="lead">مرحبًا بك في لوحة التحكم الرئيسية</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3 shadow">
+                <div class="card-body text-center">
+                    <h5>👨‍⚕️ الأطباء</h5>
+                    <h2>@ViewBag.Doctors</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3 shadow">
+                <div class="card-body text-center">
+                    <h5>🧑 المرضى</h5>
+                    <h2>@ViewBag.Patients</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3 shadow">
+                <div class="card-body text-center">
+                    <h5>🏥 الأقسام</h5>
+                    <h2>@ViewBag.Departments</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3 shadow">
+                <div class="card-body text-center">
+                    <h5>📅 المواعيد</h5>
+                    <h2>@ViewBag.Appointments</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header bg-dark text-white">
+            <h4>📋 آخر المرضى المسجلين</h4>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-primary">
+                    <tr>
+                        <th>الاسم</th>
+                        <th>العمر</th>
+                        <th>النوع</th>
+                        <th>الهاتف</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (latestPatients != null)
+                    {
+                        foreach (var patient in latestPatients)
+                        {
+                            <tr>
+                                <td>@patient.FullName</td>
+                                <td>@patient.Age</td>
+                                <td>@patient.Gender</td>
+                                <td>@patient.Phone</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

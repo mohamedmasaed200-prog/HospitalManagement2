@@ -1,0 +1,71 @@
+@model IEnumerable<HospitalManagement.Models.Patient>
+
+@{
+    ViewData["Title"] = "المرضى";
+}
+
+<h1 class="text-primary">🧑 إدارة المرضى</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        ➕ إضافة مريض جديد
+    </a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+
+    <thead class="table-primary">
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>@Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.Phone)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th>@Html.DisplayNameFor(model => model.BloodGroup)</th>
+            <th width="220">العمليات</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.FullName</td>
+                <td>@item.Age</td>
+                <td>@item.Gender</td>
+                <td>@item.Phone</td>
+                <td>@item.Address</td>
+                <td>@item.BloodGroup</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.PatientId"
+                       class="btn btn-warning btn-sm">
+                        ✏️ تعديل
+                    </a>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.PatientId"
+                       class="btn btn-info btn-sm text-white">
+                        👁 التفاصيل
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.PatientId"
+                       class="btn btn-danger btn-sm">
+                        🗑 حذف
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

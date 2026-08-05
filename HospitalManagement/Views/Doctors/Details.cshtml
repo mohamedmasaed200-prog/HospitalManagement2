@@ -1,0 +1,78 @@
+@model HospitalManagement.Models.Doctor
+
+@{
+    ViewData["Title"] = "تفاصيل الطبيب";
+}
+
+<h1 class="text-info">👨‍⚕️ تفاصيل الطبيب</h1>
+
+<hr />
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DoctorName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Specialization)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Specialization)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt class="col-sm-3">
+                القسم
+            </dt>
+
+            <dd class="col-sm-9">
+                @(Model.Department?.DepartmentName ?? "-")
+            </dd>
+
+        </dl>
+
+    </div>
+
+</div>
+
+<br />
+
+<div>
+
+    <a asp-action="Edit"
+       asp-route-id="@Model?.DoctorId"
+       class="btn btn-warning">
+        ✏️ تعديل
+    </a>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        ↩ العودة للقائمة
+    </a>
+
+</div>

@@ -1,0 +1,76 @@
+@model IEnumerable<HospitalManagement.Models.Appointment>
+
+@{
+    ViewData["Title"] = "المواعيد";
+}
+
+<h1 class="text-primary">📅 إدارة المواعيد</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        ➕ إضافة موعد
+    </a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th width="220">العمليات</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorId)
+                </td>
+
+                <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.AppointmentId"
+                       class="btn btn-warning btn-sm">
+                        ✏️ تعديل
+                    </a>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.AppointmentId"
+                       class="btn btn-info btn-sm text-white">
+                        👁 التفاصيل
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.AppointmentId"
+                       class="btn btn-danger btn-sm">
+                        🗑 حذف
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,72 @@
+@model HospitalManagement.Models.Doctor
+
+@{
+    ViewData["Title"] = "حذف الطبيب";
+}
+
+<h1 class="text-danger">🗑 حذف الطبيب</h1>
+
+<div class="alert alert-warning">
+    <h4>هل أنت متأكد من حذف هذا الطبيب؟</h4>
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DoctorName)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Specialization)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Specialization)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt class="col-sm-3">
+                القسم
+            </dt>
+            <dd class="col-sm-9">
+                @(Model.Department?.DepartmentName ?? "-")
+            </dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden" asp-for="DoctorId" />
+
+            <button type="submit" class="btn btn-danger">
+                🗑 حذف
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                ↩ العودة للقائمة
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
