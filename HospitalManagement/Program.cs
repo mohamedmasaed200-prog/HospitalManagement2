@@ -8,8 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // Database Connection
 builder.Services.AddDbContext<HospitalDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalConnection")));
-
+options.UseSqlite(builder.Configuration.GetConnectionString("HospitalConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
